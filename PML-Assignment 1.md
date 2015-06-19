@@ -16,7 +16,7 @@ Practical Machine Learning Prediction Motivation
 > library(randomForest)  
 > library(rpart)
 
-### download/read the data
+download/read the data
 > pml_training=read.csv('pml-training.csv', na.strings=c("NA",""))  
 > pml_testing=read.csv('pml-testing.csv', na.strings=c("NA",""))  
 
