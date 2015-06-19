@@ -11,7 +11,7 @@ https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
 The data for this project come from this source: http://groupware.les.inf.puc-rio.br/har.
 Practical Machine Learning Prediction Motivation
 
-> library(caret)  
+library(caret)  
 > library(kernlab)  
 > library(randomForest)  
 > library(rpart)
