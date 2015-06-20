@@ -11,11 +11,11 @@ https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
 The data for this project come from this source: http://groupware.les.inf.puc-rio.br/har.
 
 download packages
-> library(caret)  
-> library(kernlab)  
-> library(randomForest)  
+> library (caret)  
+> library (kernlab)  
+> library (randomForest)  
 > library (MASS)  
-> library(rpart)
+> library (rpart)
 
 download/read the data
 > pml_training=read.csv('pml-training.csv', na.strings=c("NA",""))  
@@ -24,7 +24,7 @@ download/read the data
 pml_training=19622 obs. of 160 variables  
 [1] 19622   160
 
-clean the data
+clean the data  
 removal of Near-Zero Values  
 > nzv <- nearZeroVar(pml_training)     
 > trainnzv <- pml_training[-nzv]  
@@ -50,7 +50,7 @@ split training data into a training (70%) and a testing (30%) dataset
 
 > table(trainSplit$classe) 
 
-   A    B    C    D    E 
+   A    B    C    D    E  
 3906 2658 2396 2252 2525 
 
 check the classes of the columns in the dataframe.  
@@ -59,29 +59,28 @@ check the classes of the columns in the dataframe.
 model1: Random Forest (RF)
 > RF <- train(classe ~ ., method = 'rf', data=trainSplit, ntrees=10)  
 
-model2: 
+model2: Linear Discriminant Analysis (LDA)
 > LDA <- train(classe ~ ., method = 'lda', data = trainSplit)   
 
 model3: Recursive Partitioning and Regression Trees (RPART)
 > RPART<- train(classe ~ ., method = 'rpart', data = trainSplit)  
 
-test Accuracy model:Randomn Forest
+
+test Accuracy model: Random Forest
 > RF_accuracy<- predict(RF, testSplit)  
 > print(confusionMatrix(RF_accuracy, testSplit$classe))  
 
-Confusion Matrix and Statistics
-
-          Reference
-Prediction    A    B    C    D    E
-         A 1674    4    0    0    0
-         B    0 1133   11    0    0
-         C    0    2 1015   10    0
-         D    0    0    0  953    0
-         E    0    0    0    1 1082
-
-Overall Statistics
+Confusion Matrix and Statistics  
+          Reference  
+Prediction    A    B    C    D    E  
+         A 1674    4    0    0    0  
+         B    0 1133   11    0    0  
+         C    0    2 1015   10    0  
+         D    0    0    0  953    0  
+         E    0    0    0    1 1082  
+Overall Statistics  
                Accuracy : 0.9952          
-                 95% CI : (0.9931, 0.9968)  
+                 95% CI : (0.9931, 0.9968)   
     No Information Rate : 0.2845          
     P-Value [Acc > NIR] : < 2.2e-16       
                    Kappa : 0.994           
@@ -98,7 +97,8 @@ Detection Prevalence   0.2851   0.1944   0.1745   0.1619   0.1840
 Balanced Accuracy      0.9995   0.9962   0.9934   0.9943   0.9999  
 
 
-test Accuracy model:Linear
+
+test Accuracy model: Linear Discriminant Analysis
 > LDA_accuracy<- predict(LDA, testSplit)  
 > print(confusionMatrix(LDA_accuracy, testSplit$classe))  
 
@@ -130,6 +130,8 @@ Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839
 Detection Rate         0.2292   0.1257   0.1128   0.1152   0.1082  
 Detection Prevalence   0.2895   0.1873   0.2003   0.1912   0.1317  
 Balanced Accuracy      0.8608   0.7867   0.7706   0.8062   0.7800  
+
+
 
 test Accuracy model: Recursive Partitioning and Regression Trees (RPART)
 > RPART_accuracy<- predict(RPART, testSplit)  
