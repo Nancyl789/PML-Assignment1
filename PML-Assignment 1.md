@@ -69,6 +69,35 @@ test Accuracy model:Randomn Forest
 > RF_accuracy<- predict(RF, testSplit)  
 > print(confusionMatrix(RF_accuracy, testSplit$classe))  
 
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    A    B    C    D    E
+         A 1674    4    0    0    0
+         B    0 1133   11    0    0
+         C    0    2 1015   10    0
+         D    0    0    0  953    0
+         E    0    0    0    1 1082
+
+Overall Statistics
+               Accuracy : 0.9952          
+                 95% CI : (0.9931, 0.9968)  
+    No Information Rate : 0.2845          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                   Kappa : 0.994           
+ Mcnemar's Test P-Value : NA              
+Statistics by Class:  
+                     Class: A Class: B Class: C Class: D Class: E  
+Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
+Specificity            0.9991   0.9977   0.9975   1.0000   0.9998  
+Pos Pred Value         0.9976   0.9904   0.9883   1.0000   0.9991  
+Neg Pred Value         1.0000   0.9987   0.9977   0.9978   1.0000  
+Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839  
+Detection Rate         0.2845   0.1925   0.1725   0.1619   0.1839  
+Detection Prevalence   0.2851   0.1944   0.1745   0.1619   0.1840  
+Balanced Accuracy      0.9995   0.9962   0.9934   0.9943   0.9999  
+
+
 test Accuracy model:Linear
 > LDA_accuracy<- predict(LDA, testSplit)  
 > print(confusionMatrix(LDA_accuracy, testSplit$classe))  
