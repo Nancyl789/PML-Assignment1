@@ -68,7 +68,8 @@ test Accuracy model: Random Forest
 > print(confusionMatrix(RF_accuracy, testSplit$classe))  
 
 Confusion Matrix and Statistics   Reference   
-Prediction    A    B    C    D    E  
+Prediction    
+A    B    C    D    E  
          A 1674    4    0    0    0  
          B    0 1133   11    0    0  
          C    0    2 1015   10    0  
