@@ -56,13 +56,13 @@ split training data into a training (70%) and a testing (30%) dataset
 check the classes of the columns in the dataframe.  
 > lapply(trainSplit, class) 
 
-model1: Random Forest
+model1: Random Forest (RF)
 > RF <- train(classe ~ ., method = 'rf', data=trainSplit, ntrees=10)  
 
 model2: 
 > LDA <- train(classe ~ ., method = 'lda', data = trainSplit)   
 
-model3: Recursive Partitioning and Regression Trees
+model3: Recursive Partitioning and Regression Trees (RPART)
 > RPART<- train(classe ~ ., method = 'rpart', data = trainSplit)  
 
 test Accuracy model:Randomn Forest
@@ -74,7 +74,7 @@ test Accuracy model:Linear
 > print(confusionMatrix(LDA_accuracy, testSplit$classe))  
 
 Confusion Matrix and Statistics  
- Prediction    A    B    C    D    E
+ Prediction     A    B    C    D    E  
          A 1349  166   90   49   50  
          B   40  740  103   55  164  
          C  139  140  664  120  116  
@@ -102,9 +102,37 @@ Detection Rate         0.2292   0.1257   0.1128   0.1152   0.1082
 Detection Prevalence   0.2895   0.1873   0.2003   0.1912   0.1317  
 Balanced Accuracy      0.8608   0.7867   0.7706   0.8062   0.7800  
 
-test Accuracy model:
+test Accuracy model: Recursive Partitioning and Regression Trees (RPART)
 > RPART_accuracy<- predict(RPART, testSplit)  
 > print(confusionMatrix(RPART_accuracy, testSplit$classe)) 
+
+Confusion Matrix and Statistics  
+          Reference  
+Prediction    A    B    C    D    E  
+         A 1508  440  471  420  236  
+         B   37  373   30   24  174  
+         C  128  284  525  354  300  
+         D    0   42    0  166   57  
+         E    1    0    0    0  315  
+         
+Overall Statistics  
+               Accuracy : 0.4906          
+                 95% CI : (0.4777, 0.5034)  
+    No Information Rate : 0.2845          
+    P-Value [Acc > NIR] : < 2.2e-16      
+    Kappa : 0.335           
+ Mcnemar's Test P-Value : < 2.2e-16       
+
+Statistics by Class:
+                     Class: A Class: B Class: C Class: D Class: E  
+Sensitivity            0.9008  0.32748  0.51170  0.17220  0.29113  
+Specificity            0.6279  0.94416  0.78061  0.97988  0.99979  
+Pos Pred Value         0.4904  0.58464  0.32998  0.62642  0.99684  
+Neg Pred Value         0.9409  0.85401  0.88333  0.85801  0.86227  
+Prevalence             0.2845  0.19354  0.17434  0.16381  0.18386  
+Detection Rate         0.2562  0.06338  0.08921  0.02821  0.05353  
+Detection Prevalence   0.5225  0.10841  0.27035  0.04503  0.05370  
+Balanced Accuracy      0.7644  0.63582  0.64615  0.57604  0.64546  
 
 to avoid over-fitting -> cross validation with 10 folds.
 > set.seed(3333)   
