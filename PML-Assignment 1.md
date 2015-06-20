@@ -176,6 +176,38 @@ test Accuracy model:
 > RF_CV_accuracy<- predict(RF_CV, testSplit) 
 > print(confusionMatrix(RF_CV_accuracy, testSplit$classe))  
 
+Confusion Matrix and Statistics  
+          Reference
+Prediction    A    B    C    D    E  
+         A 1673    5    0    0    0  
+         B    1 1131   12    0    0  
+         C    0    3 1014   10    0  
+         D    0    0    0  953    0  
+         E    0    0    0    1 1082  
+
+Overall Statistics  
+                Accuracy : 0.9946          
+                 95% CI : (0.9923, 0.9963)  
+    No Information Rate : 0.2845          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                  Kappa : 0.9931          
+ Mcnemar's Test P-Value : NA              
+
+Statistics by Class:  
+                     Class: A Class: B Class: C Class: D Class: E  
+Sensitivity            0.9994   0.9930   0.9883   0.9886   1.0000  
+Specificity            0.9988   0.9973   0.9973   1.0000   0.9998  
+Pos Pred Value         0.9970   0.9886   0.9873   1.0000   0.9991  
+Neg Pred Value         0.9998   0.9983   0.9975   0.9978   1.0000  
+Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839  
+Detection Rate         0.2843   0.1922   0.1723   0.1619   0.1839  
+Detection Prevalence   0.2851   0.1944   0.1745   0.1619   0.1840  
+Balanced Accuracy      0.9991   0.9951   0.9928   0.9943   0.9999  
+
 test set prediction
 > testing <- predict(RF, pml_testing)   
 > testing  
+
+ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20   
+ B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B   
+Levels: A B C D E  
