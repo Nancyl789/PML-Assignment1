@@ -71,20 +71,22 @@ test Accuracy model: Random Forest
 > print(confusionMatrix(RF_accuracy, testSplit$classe))  
 
 Confusion Matrix and Statistics  
-          Reference  
+          Reference   
 Prediction    A    B    C    D    E  
          A 1674    4    0    0    0  
          B    0 1133   11    0    0  
          C    0    2 1015   10    0  
          D    0    0    0  953    0  
          E    0    0    0    1 1082  
+         
 Overall Statistics  
                Accuracy : 0.9952          
                  95% CI : (0.9931, 0.9968)   
     No Information Rate : 0.2845          
     P-Value [Acc > NIR] : < 2.2e-16       
                    Kappa : 0.994           
- Mcnemar's Test P-Value : NA              
+ Mcnemar's Test P-Value : NA        
+ 
 Statistics by Class:  
                      Class: A Class: B Class: C Class: D Class: E  
 Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
