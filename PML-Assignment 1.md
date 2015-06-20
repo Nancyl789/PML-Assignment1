@@ -9,7 +9,7 @@ https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv
 The test data are available here: 
 https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
 The data for this project come from this source: http://groupware.les.inf.puc-rio.br/har.
-Practical Machine Learning Prediction Motivation
+
 
 > library(caret)  
 > library(kernlab)  
@@ -20,16 +20,19 @@ download/read the data
 > pml_training=read.csv('pml-training.csv', na.strings=c("NA",""))  
 > pml_testing=read.csv('pml-testing.csv', na.strings=c("NA",""))  
 
+pml_training=19622 obs. of 160 variables
+[1] 19622   160
+
 clean the data
-removal of Near-Zero Values 
-> nzv <- nearZeroVar(pml_training)   
+removal of Near-Zero Values  
+> nzv <- nearZeroVar(pml_training)     
 > trainnzv <- pml_training[-nzv]  
-> train1 <- trainnzv[, which(as.numeric(colSums(is.na(trainnzv)))==0)]   
 
 removal of NAs  
-> train2 <- train1[,-(1:7)]
+> train1 <- trainnzv[, which(as.numeric(colSums(is.na(trainnzv)))==0)]   
 
 removal of non-numeric Vb (x, user_name, raw_time_stamp 1, and 2, cvtd_timestamp, num_window)  
+> train2 <- train1[,-(1:7)]
 
 class into factor
 > train2$classe <- factor(train2$classe) 
