@@ -53,9 +53,6 @@ split training data into a training (70%) and a testing (30%) dataset
    A    B    C    D    E  
 3906 2658 2396 2252 2525 
 
-check the classes of the columns in the dataframe.  
-> lapply(trainSplit, class) 
-
 model1: Random Forest (RF)
 > RF <- train(classe ~ ., method = 'rf', data=trainSplit, ntrees=10)  
 
@@ -70,8 +67,7 @@ test Accuracy model: Random Forest
 > RF_accuracy<- predict(RF, testSplit)  
 > print(confusionMatrix(RF_accuracy, testSplit$classe))  
 
-Confusion Matrix and Statistics  
-          Reference   
+Confusion Matrix and Statistics   Reference   
 Prediction    A    B    C    D    E  
          A 1674    4    0    0    0  
          B    0 1133   11    0    0  
