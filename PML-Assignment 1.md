@@ -14,7 +14,7 @@ download packages
 > library(caret)  
 > library(kernlab)  
 > library(randomForest)  
-> library (MASS)
+> library (MASS)  
 > library(rpart)
 
 download/read the data
@@ -38,7 +38,7 @@ removal of non-numeric Vb (x, user_name, raw_time_stamp 1, and 2, cvtd_timestamp
 distribution of the Vb classe (A,B,C,D,E)  
 > table(train2$classe)  
 
-   A    B    C    D    E  
+   A    B    C    D    E    
 5580 3797 3422 3216 3607  
 
 split training data into a training (70%) and a testing (30%) dataset  
@@ -73,7 +73,7 @@ test Accuracy model:Linear
 > LDA_accuracy<- predict(LDA, testSplit)  
 > print(confusionMatrix(LDA_accuracy, testSplit$classe))  
 
-Confusion Matrix and Statistics
+Confusion Matrix and Statistics  
  Prediction    A    B    C    D    E
          A 1349  166   90   49   50  
          B   40  740  103   55  164  
@@ -83,10 +83,11 @@ Confusion Matrix and Statistics
 
 Overall Statistics
                Accuracy : 0.6912         
-                 95% CI : (0.6793, 0.703)
+                 95% CI : (0.6793, 0.703)  
     No Information Rate : 0.2845         
     P-Value [Acc > NIR] : < 2.2e-16      
-                                         
+
+
                   Kappa : 0.6096         
  Mcnemar's Test P-Value : < 2.2e-16      
 
