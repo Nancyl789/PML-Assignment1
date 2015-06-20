@@ -20,7 +20,7 @@ download/read the data
 > pml_training=read.csv('pml-training.csv', na.strings=c("NA",""))  
 > pml_testing=read.csv('pml-testing.csv', na.strings=c("NA",""))  
 
-pml_training=19622 obs. of 160 variables
+pml_training=19622 obs. of 160 variables  
 [1] 19622   160
 
 clean the data
@@ -34,8 +34,10 @@ removal of NAs
 removal of non-numeric Vb (x, user_name, raw_time_stamp 1, and 2, cvtd_timestamp, num_window)  
 > train2 <- train1[,-(1:7)]
 
-class into factor
-> train2$classe <- factor(train2$classe) 
+distribution of the Vb classe (A,B,C,D,E)  
+> table(train2$classe)  
+   A    B    C    D    E  
+5580 3797 3422 3216 3607  
 
 > inTrain<-createDataPartition(y=train2$classe,
                              p=0.5, list=FALSE)  
