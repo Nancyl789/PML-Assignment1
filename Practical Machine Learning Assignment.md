@@ -70,9 +70,9 @@ test Accuracy model: Random Forest
 
 Confusion Matrix and Statistics   Reference   
 Prediction    
-A    B    C    D    E  
-         A 1674    4    0    0    0  
-         B    0 1133   11    0    0  
+##            A    B    C    D    E  
+##        A 1674    4    0    0    0  
+##        B    0 1133   11    0    0  
          C    0    2 1015   10    0  
          D    0    0    0  953    0  
          E    0    0    0    1 1082  
