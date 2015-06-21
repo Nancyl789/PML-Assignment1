@@ -21,7 +21,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
 > pml_training=read.csv('pml-training.csv', na.strings=c("NA",""))  
 > pml_testing=read.csv('pml-testing.csv', na.strings=c("NA",""))  
 
-pml_training=19622 obs. of 160 variables  
+      pml_training=19622 obs. of 160 variables  
       [1] 19622   160
 
 #####clean the data: removal of Near-Zero Values  
@@ -34,7 +34,7 @@ pml_training=19622 obs. of 160 variables
 #####clean the data: removal of non-numeric Vb (x, user_name, raw_time_stamp 1, and 2, cvtd_timestamp, num_window)  
 > train2 <- train1[,-(1:7)]
 
-####distribution of the Vb classe (A,B,C,D,E)  
+#####distribution of the Vb classe (A,B,C,D,E)  
 > table(train2$classe)  
        A    B    C    D    E    
       5580 3797 3422 3216 3607  
@@ -50,8 +50,8 @@ pml_training=19622 obs. of 160 variables
 
 > table(trainSplit$classe) 
 
-      A    B    C    D    E  
-     3906 2658 2396 2252 2525 
+       A    B    C    D    E  
+      3906 2658 2396 2252 2525 
 
 #####model1: Random Forest (RF)
 > RF <- train(classe ~ ., method = 'rf', data=trainSplit, ntrees=10)  
@@ -202,4 +202,4 @@ pml_training=19622 obs. of 160 variables
 #####Random forest provide the best results and the right predictions for the submission.
        1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20   
        B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B   
-Levels: A B C D E  
+      Levels: A B C D E  
