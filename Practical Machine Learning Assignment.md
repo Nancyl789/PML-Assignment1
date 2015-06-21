@@ -203,7 +203,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
        Levels: A B C D E   
 
 #####Out-of-Sample error  
->confM <- confusionMatrix(RF_CV_accuracy, testSplit$classe)
+>confM <- confusionMatrix(RF_CV_accuracy, testSplit$classe)  
 >sum(diag(confM$table))/sum(confM$table)  
       
 ####Conclusion  
