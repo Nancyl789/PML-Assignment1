@@ -55,7 +55,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
       3906 2658 2396 2252 2525  
       
 #####barplot of levels of the variable classe
-> plot(trainSplit$classe, col="blue", main="Barplot of levels of the variable classe", xlab="classe levels", ylab="Frequency")
+> plot(trainSplit$classe, col="blue", main="Barplot of levels of the vb classe", xlab="Classe levels", ylab="Freq.")
 
 #####model1: Random Forest (RF)
 > RF <- train(classe ~ ., method = 'rf', data=trainSplit, ntrees=10)  
