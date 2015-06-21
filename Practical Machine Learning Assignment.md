@@ -157,7 +157,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
       LDA       0.6912      0.6096 
       RPART     0.4906      0.335
 
-#####to avoid over-fitting -> cross validation with 10 folds.
+#####improve the model and to avoid over-fitting -> cross validation with 10 folds.
 > set.seed(3333)   
 > controlOF <- trainControl(method = "repeatedcv", number = 10, repeats = 10)  
 > RF_CV <- train(classe ~ ., method="rf",  data=trainSplit, trControl = controlOF)
