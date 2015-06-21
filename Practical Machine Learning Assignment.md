@@ -24,14 +24,14 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
 pml_training=19622 obs. of 160 variables  
 [1] 19622   160
 
-###clean the data: removal of Near-Zero Values  
+#####clean the data: removal of Near-Zero Values  
 > nzv <- nearZeroVar(pml_training)     
 > trainnzv <- pml_training[-nzv]  
 
-###clean the data: removal of NAs  
+#####clean the data: removal of NAs  
 > train1 <- trainnzv[, which(as.numeric(colSums(is.na(trainnzv)))==0)]   
 
-###clean the data: removal of non-numeric Vb (x, user_name, raw_time_stamp 1, and 2, cvtd_timestamp, num_window)  
+#####clean the data: removal of non-numeric Vb (x, user_name, raw_time_stamp 1, and 2, cvtd_timestamp, num_window)  
 > train2 <- train1[,-(1:7)]
 
 ####distribution of the Vb classe (A,B,C,D,E)  
@@ -39,11 +39,11 @@ pml_training=19622 obs. of 160 variables
  A    B    C    D    E    
 5580 3797 3422 3216 3607  
 
-split training data into a training (70%) and a testing (30%) dataset  
+#####split training data into a training (70%) and a testing (30%) dataset  
 > inTrain<-createDataPartition(y=train2$classe,
                              p=0.7, list=FALSE)  
                              
-seed for pseudo-random generator
+#####seed for pseudo-random generator
 > set.seed(3333)  
 > trainSplit <- train2[inTrain,]  
 > testSplit <- train2[-inTrain,]  
@@ -53,17 +53,16 @@ seed for pseudo-random generator
 A    B    C    D    E  
 3906 2658 2396 2252 2525 
 
-####model1: Random Forest (RF)
+#####model1: Random Forest (RF)
 > RF <- train(classe ~ ., method = 'rf', data=trainSplit, ntrees=10)  
 
-####model2: Linear Discriminant Analysis (LDA)
+#####model2: Linear Discriminant Analysis (LDA)
 > LDA <- train(classe ~ ., method = 'lda', data = trainSplit)   
 
-model3: Recursive Partitioning and Regression Trees (RPART)
+#####model3: Recursive Partitioning and Regression Trees (RPART)
 > RPART<- train(classe ~ ., method = 'rpart', data = trainSplit)  
 
-
-test Accuracy model: Random Forest
+#####test Accuracy model: Random Forest
 > RF_accuracy<- predict(RF, testSplit)  
 > print(confusionMatrix(RF_accuracy, testSplit$classe))  
 
@@ -85,14 +84,14 @@ test Accuracy model: Random Forest
  
 ######Statistics by Class:
                       Class: A Class: B Class: C Class: D Class: E  
-Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
-Specificity            0.9991   0.9977   0.9975   1.0000   0.9998  
-Pos Pred Value         0.9976   0.9904   0.9883   1.0000   0.9991  
-Neg Pred Value         1.0000   0.9987   0.9977   0.9978   1.0000  
-Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839  
-Detection Rate         0.2845   0.1925   0.1725   0.1619   0.1839  
-Detection Prevalence   0.2851   0.1944   0.1745   0.1619   0.1840  
-Balanced Accuracy      0.9995   0.9962   0.9934   0.9943   0.9999  
+  Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
+  Specificity            0.9991   0.9977   0.9975   1.0000   0.9998  
+  Pos Pred Value         0.9976   0.9904   0.9883   1.0000   0.9991  
+  Neg Pred Value         1.0000   0.9987   0.9977   0.9978   1.0000  
+  Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839  
+  Detection Rate         0.2845   0.1925   0.1725   0.1619   0.1839  
+  Detection Prevalence   0.2851   0.1944   0.1745   0.1619   0.1840  
+  Balanced Accuracy      0.9995   0.9962   0.9934   0.9943   0.9999  
 
 test Accuracy model: Linear Discriminant Analysis
 > LDA_accuracy<- predict(LDA, testSplit)  
