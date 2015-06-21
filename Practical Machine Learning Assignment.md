@@ -37,7 +37,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
 #####distribution of the Vb classe (A,B,C,D,E)  
 > table(train2$classe)  
 
-      A    B    C    D    E    
+        A    B    C    D    E    
       5580 3797 3422 3216 3607  
 
 #####split training data into a training (70%) and a testing (30%) dataset  
@@ -51,7 +51,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
 
 > table(trainSplit$classe)  
 
-       A    B    C    D    E  
+        A    B    C    D    E  
       3906 2658 2396 2252 2525 
 
 #####model1: Random Forest (RF)
