@@ -50,7 +50,7 @@ seed for pseudo-random generator
 
 > table(trainSplit$classe) 
 
-    A    B    C    D    E  
+A    B    C    D    E  
 3906 2658 2396 2252 2525 
 
 model1: Random Forest (RF)
@@ -67,14 +67,13 @@ test Accuracy model: Random Forest
 > RF_accuracy<- predict(RF, testSplit)  
 > print(confusionMatrix(RF_accuracy, testSplit$classe))  
 
-Confusion Matrix and Statistics   Reference   
-##Prediction    
-         A    B    C    D    E  
+####Confusion Matrix and Statistics   Reference   
+          A     B    C    D    E  
       A 1674    4    0    0    0  
-       B    0 1133   11    0    0  
-     C    0    2 1015   10    0  
-       D    0    0    0  953    0  
-     E    0    0    0    1 1082  
+      B    0 1133   11    0    0  
+      C    0    2 1015   10    0  
+      D    0    0    0  953    0  
+      E    0    0    0    1 1082  
          
 Overall Statistics  
                Accuracy : 0.9952          
