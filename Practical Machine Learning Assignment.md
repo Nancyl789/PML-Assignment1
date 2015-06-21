@@ -205,6 +205,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
 #####Out-of-Sample error  
 >confM <- confusionMatrix(RF_CV_accuracy, testSplit$classe)  
 >sum(diag(confM$table))/sum(confM$table)  
+
        [1] 0.9954121
     
 ####Conclusion  
