@@ -197,9 +197,9 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
 #####test set prediction
 > testing <- predict(RF, pml_testing)   
 > testing  
-
-#####Random forest provide the best results and the right predictions for the submission. 
-#####The expected out-of-sample error is estimated at 0.005, or 0.5%.
        1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20   
        B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B   
-       Levels: A B C D E  
+       Levels: A B C D E   
+       
+#####Random forest provide the best results and the right predictions for the submission. 
+#####The expected out-of-sample error is estimated at 0.005, or 0.5%.
