@@ -83,7 +83,7 @@ A    B    C    D    E
                    Mcnemar's Test P-Value : NA        
  
 ###### Stats by Class: 
-                       Class: A Class: B Class: C Class: D Class: E  
+                       Class: A Class: B Class: C Class: D Class: E
    Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
    Specificity            0.9991   0.9977   0.9975   1.0000   0.9998  
    Pos Pred Value         0.9976   0.9904   0.9883   1.0000   0.9991  
