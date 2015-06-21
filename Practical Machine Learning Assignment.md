@@ -25,7 +25,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
       [1] 19622   160
 
 #####clean the data: removal of Near-Zero Values  
-> nzv <- nearZeroVar(pml_training)     
+> nzv <- nearZeroVar(pml_training)      
 > trainnzv <- pml_training[-nzv]  
 
 #####clean the data: removal of NAs  
