@@ -202,10 +202,10 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
        B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B   
        Levels: A B C D E   
 
-#####Out-of-Sample error
-confM <- confusionMatrix(RF_CV_accuracy, testSplit$classe)
-      sum(diag(confM$table))/sum(confM$table)
+#####Out-of-Sample error  
+>confM <- confusionMatrix(RF_CV_accuracy, testSplit$classe)
+>sum(diag(confM$table))/sum(confM$table)  
       
-####Conclusion
-#####Random forest provide the best results and the right predictions for the submission. 
-#####The expected out-of-sample error is estimated at 0.005, or 0.5%.
+####Conclusion  
+#####Random forest provide the best results and the right predictions for the submission.  
+#####The expected out-of-sample error is estimated at 0.005, or 0.5%.  
