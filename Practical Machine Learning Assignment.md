@@ -44,15 +44,14 @@ distribution of the Vb classe (A,B,C,D,E)
 split training data into a training (70%) and a testing (30%) dataset  
 > inTrain<-createDataPartition(y=train2$classe,
                              p=0.7, list=FALSE)  
+seed for pseudo-random generator
 > set.seed(3333)  
 > trainSplit <- train2[inTrain,]  
 > testSplit <- train2[-inTrain,]  
 
 > table(trainSplit$classe) 
 
- A    B    C    D    E  
-3906 2658 2396 2252 2525 
-   A    B    C    D    E  
+    A    B    C    D    E  
 3906 2658 2396 2252 2525 
 
 model1: Random Forest (RF)
@@ -165,6 +164,11 @@ Prevalence             0.2845  0.19354  0.17434  0.16381  0.18386
 Detection Rate         0.2562  0.06338  0.08921  0.02821  0.05353  
 Detection Prevalence   0.5225  0.10841  0.27035  0.04503  0.05370  
 Balanced Accuracy      0.7644  0.63582  0.64615  0.57604  0.64546  
+
+model 	Accuracy 	Kappa
+RF        0.9952      0.994
+LDA       0.6912      0.6096 
+RPART     0.4906      0.335
 
 to avoid over-fitting -> cross validation with 10 folds.
 > set.seed(3333)   
