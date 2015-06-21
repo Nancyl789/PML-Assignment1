@@ -22,7 +22,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
 > pml_testing=read.csv('pml-testing.csv', na.strings=c("NA",""))  
 
 pml_training=19622 obs. of 160 variables  
-[1] 19622   160
+      [1] 19622   160
 
 #####clean the data: removal of Near-Zero Values  
 > nzv <- nearZeroVar(pml_training)     
@@ -36,8 +36,8 @@ pml_training=19622 obs. of 160 variables
 
 ####distribution of the Vb classe (A,B,C,D,E)  
 > table(train2$classe)  
- A    B    C    D    E    
-5580 3797 3422 3216 3607  
+       A    B    C    D    E    
+      5580 3797 3422 3216 3607  
 
 #####split training data into a training (70%) and a testing (30%) dataset  
 > inTrain<-createDataPartition(y=train2$classe,
@@ -50,8 +50,8 @@ pml_training=19622 obs. of 160 variables
 
 > table(trainSplit$classe) 
 
-A    B    C    D    E  
-3906 2658 2396 2252 2525 
+      A    B    C    D    E  
+     3906 2658 2396 2252 2525 
 
 #####model1: Random Forest (RF)
 > RF <- train(classe ~ ., method = 'rf', data=trainSplit, ntrees=10)  
@@ -82,7 +82,7 @@ A    B    C    D    E
                    Kappa : 0.994           
                    Mcnemar's Test P-Value : NA        
  
-###### Stats by Class:
+###### Statistics by Class:
                             Class: A Class: B Class: C Class: D Class: E
        Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
        Specificity            0.9991   0.9977   0.9975   1.0000   0.9998  
@@ -93,7 +93,7 @@ A    B    C    D    E
        Detection Prevalence   0.2851   0.1944   0.1745   0.1619   0.1840  
        Balanced Accuracy      0.9995   0.9962   0.9934   0.9943   0.9999  
 
-test Accuracy model: Linear Discriminant Analysis
+#####test Accuracy model: Linear Discriminant Analysis
 > LDA_accuracy<- predict(LDA, testSplit)  
 > print(confusionMatrix(LDA_accuracy, testSplit$classe))  
 
@@ -114,19 +114,17 @@ test Accuracy model: Linear Discriminant Analysis
                   Mcnemar's Test P-Value : < 2.2e-16      
 
 #####Statistics by Class:
-                     Class: A Class: B Class: C Class: D Class: E  
-Sensitivity            0.8059   0.6497   0.6472   0.7033   0.5887  
-Specificity            0.9157   0.9237   0.8940   0.9092   0.9713  
-Pos Pred Value         0.7917   0.6715   0.5632   0.6027   0.8219  
-Neg Pred Value         0.9223   0.9166   0.9231   0.9399   0.9129  
-Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839  
-Detection Rate         0.2292   0.1257   0.1128   0.1152   0.1082  
-Detection Prevalence   0.2895   0.1873   0.2003   0.1912   0.1317  
-Balanced Accuracy      0.8608   0.7867   0.7706   0.8062   0.7800  
+                           Class: A Class: B Class: C Class: D Class: E  
+      Sensitivity            0.8059   0.6497   0.6472   0.7033   0.5887  
+      Specificity            0.9157   0.9237   0.8940   0.9092   0.9713  
+      Pos Pred Value         0.7917   0.6715   0.5632   0.6027   0.8219  
+      Neg Pred Value         0.9223   0.9166   0.9231   0.9399   0.9129  
+      Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839  
+      Detection Rate         0.2292   0.1257   0.1128   0.1152   0.1082  
+      Detection Prevalence   0.2895   0.1873   0.2003   0.1912   0.1317  
+      Balanced Accuracy      0.8608   0.7867   0.7706   0.8062   0.7800  
 
-
-
-test Accuracy model: Recursive Partitioning and Regression Trees (RPART)
+#####test Accuracy model: Recursive Partitioning and Regression Trees (RPART)
 > RPART_accuracy<- predict(RPART, testSplit)  
 > print(confusionMatrix(RPART_accuracy, testSplit$classe)) 
 
@@ -140,33 +138,33 @@ test Accuracy model: Recursive Partitioning and Regression Trees (RPART)
 #####Overall Statistics  
                Accuracy : 0.4906          
                  95% CI : (0.4777, 0.5034)  
-    No Information Rate : 0.2845          
-    P-Value [Acc > NIR] : < 2.2e-16      
-    Kappa : 0.335           
- Mcnemar's Test P-Value : < 2.2e-16       
+         No Information Rate : 0.2845          
+         P-Value [Acc > NIR] : < 2.2e-16      
+         Kappa : 0.335           
+         Mcnemar's Test P-Value : < 2.2e-16       
 
 #####Statistics by Class:
                      Class: A Class: B Class: C Class: D Class: E  
-Sensitivity            0.9008  0.32748  0.51170  0.17220  0.29113  
-Specificity            0.6279  0.94416  0.78061  0.97988  0.99979  
-Pos Pred Value         0.4904  0.58464  0.32998  0.62642  0.99684  
-Neg Pred Value         0.9409  0.85401  0.88333  0.85801  0.86227  
-Prevalence             0.2845  0.19354  0.17434  0.16381  0.18386  
-Detection Rate         0.2562  0.06338  0.08921  0.02821  0.05353  
-Detection Prevalence   0.5225  0.10841  0.27035  0.04503  0.05370  
-Balanced Accuracy      0.7644  0.63582  0.64615  0.57604  0.64546  
+      Sensitivity            0.9008  0.32748  0.51170  0.17220  0.29113  
+      Specificity            0.6279  0.94416  0.78061  0.97988  0.99979  
+      Pos Pred Value         0.4904  0.58464  0.32998  0.62642  0.99684  
+      Neg Pred Value         0.9409  0.85401  0.88333  0.85801  0.86227  
+      Prevalence             0.2845  0.19354  0.17434  0.16381  0.18386  
+      Detection Rate         0.2562  0.06338  0.08921  0.02821  0.05353  
+      Detection Prevalence   0.5225  0.10841  0.27035  0.04503  0.05370  
+      Balanced Accuracy      0.7644  0.63582  0.64615  0.57604  0.64546  
 
-model 	Accuracy 	Kappa
-RF        0.9952      0.994
-LDA       0.6912      0.6096 
-RPART     0.4906      0.335
+      model     Accuracy 	  Kappa
+      RF        0.9952      0.994
+      LDA       0.6912      0.6096 
+      RPART     0.4906      0.335
 
-to avoid over-fitting -> cross validation with 10 folds.
+#####to avoid over-fitting -> cross validation with 10 folds.
 > set.seed(3333)   
 > controlOF <- trainControl(method = "repeatedcv", number = 10, repeats = 10)  
 > RF_CV <- train(classe ~ ., method="rf",  data=trainSplit, trControl = controlOF)
 
-test Accuracy model:  
+#####test Accuracy model:  
 > RF_CV_accuracy<- predict(RF_CV, testSplit) 
 > print(confusionMatrix(RF_CV_accuracy, testSplit$classe))  
 
@@ -184,24 +182,24 @@ test Accuracy model:
     No Information Rate : 0.2845          
     P-Value [Acc > NIR] : < 2.2e-16       
                   Kappa : 0.9931          
- Mcnemar's Test P-Value : NA              
+                  Mcnemar's Test P-Value : NA              
 
 ######Statistics by Class:  
                      Class: A Class: B Class: C Class: D Class: E  
-Sensitivity            0.9994   0.9930   0.9883   0.9886   1.0000  
-Specificity            0.9988   0.9973   0.9973   1.0000   0.9998  
-Pos Pred Value         0.9970   0.9886   0.9873   1.0000   0.9991  
-Neg Pred Value         0.9998   0.9983   0.9975   0.9978   1.0000  
-Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839  
-Detection Rate         0.2843   0.1922   0.1723   0.1619   0.1839  
-Detection Prevalence   0.2851   0.1944   0.1745   0.1619   0.1840  
-Balanced Accuracy      0.9991   0.9951   0.9928   0.9943   0.9999  
+      Sensitivity            0.9994   0.9930   0.9883   0.9886   1.0000  
+      Specificity            0.9988   0.9973   0.9973   1.0000   0.9998  
+      Pos Pred Value         0.9970   0.9886   0.9873   1.0000   0.9991  
+      Neg Pred Value         0.9998   0.9983   0.9975   0.9978   1.0000  
+      Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839  
+      Detection Rate         0.2843   0.1922   0.1723   0.1619   0.1839  
+      Detection Prevalence   0.2851   0.1944   0.1745   0.1619   0.1840  
+      Balanced Accuracy      0.9991   0.9951   0.9928   0.9943   0.9999  
 
-test set prediction
+#####test set prediction
 > testing <- predict(RF, pml_testing)   
 > testing  
 
 #####Random forest provide the best results and the right predictions for the submission.
- 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20   
- B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B   
+       1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20   
+       B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B   
 Levels: A B C D E  
