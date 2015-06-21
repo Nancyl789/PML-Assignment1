@@ -37,8 +37,7 @@ removal of non-numeric Vb (x, user_name, raw_time_stamp 1, and 2, cvtd_timestamp
 
 distribution of the Vb classe (A,B,C,D,E)  
 > table(train2$classe)  
-
-   A    B    C    D    E    
+ A    B    C    D    E    
 5580 3797 3422 3216 3607  
 
 split training data into a training (70%) and a testing (30%) dataset  
@@ -69,13 +68,13 @@ test Accuracy model: Random Forest
 > print(confusionMatrix(RF_accuracy, testSplit$classe))  
 
 Confusion Matrix and Statistics   Reference   
-Prediction    
-##            A    B    C    D    E  
-##        A 1674    4    0    0    0  
-##        B    0 1133   11    0    0  
-         C    0    2 1015   10    0  
-         D    0    0    0  953    0  
-         E    0    0    0    1 1082  
+##Prediction    
+         A    B    C    D    E  
+      A 1674    4    0    0    0  
+       B    0 1133   11    0    0  
+     C    0    2 1015   10    0  
+       D    0    0    0  953    0  
+     E    0    0    0    1 1082  
          
 Overall Statistics  
                Accuracy : 0.9952          
