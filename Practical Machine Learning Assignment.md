@@ -50,6 +50,8 @@ split training data into a training (70%) and a testing (30%) dataset
 
 > table(trainSplit$classe) 
 
+ A    B    C    D    E  
+3906 2658 2396 2252 2525 
    A    B    C    D    E  
 3906 2658 2396 2252 2525 
 
