@@ -10,32 +10,31 @@ The test data are available here:
 https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
 The data for this project come from this source: http://groupware.les.inf.puc-rio.br/har.
 
-download packages
+####download packages
 > library (caret)  
 > library (kernlab)  
 > library (randomForest)  
 > library (MASS)  
 > library (rpart)
 
-download/read the data
+#####download/read the data
 > pml_training=read.csv('pml-training.csv', na.strings=c("NA",""))  
 > pml_testing=read.csv('pml-testing.csv', na.strings=c("NA",""))  
 
 pml_training=19622 obs. of 160 variables  
 [1] 19622   160
 
-clean the data  
-removal of Near-Zero Values  
+###clean the data: removal of Near-Zero Values  
 > nzv <- nearZeroVar(pml_training)     
 > trainnzv <- pml_training[-nzv]  
 
-removal of NAs  
+###clean the data: removal of NAs  
 > train1 <- trainnzv[, which(as.numeric(colSums(is.na(trainnzv)))==0)]   
 
-removal of non-numeric Vb (x, user_name, raw_time_stamp 1, and 2, cvtd_timestamp, num_window)  
+###clean the data: removal of non-numeric Vb (x, user_name, raw_time_stamp 1, and 2, cvtd_timestamp, num_window)  
 > train2 <- train1[,-(1:7)]
 
-distribution of the Vb classe (A,B,C,D,E)  
+####distribution of the Vb classe (A,B,C,D,E)  
 > table(train2$classe)  
  A    B    C    D    E    
 5580 3797 3422 3216 3607  
@@ -43,6 +42,7 @@ distribution of the Vb classe (A,B,C,D,E)
 split training data into a training (70%) and a testing (30%) dataset  
 > inTrain<-createDataPartition(y=train2$classe,
                              p=0.7, list=FALSE)  
+                             
 seed for pseudo-random generator
 > set.seed(3333)  
 > trainSplit <- train2[inTrain,]  
@@ -53,10 +53,10 @@ seed for pseudo-random generator
 A    B    C    D    E  
 3906 2658 2396 2252 2525 
 
-model1: Random Forest (RF)
+####model1: Random Forest (RF)
 > RF <- train(classe ~ ., method = 'rf', data=trainSplit, ntrees=10)  
 
-model2: Linear Discriminant Analysis (LDA)
+####model2: Linear Discriminant Analysis (LDA)
 > LDA <- train(classe ~ ., method = 'lda', data = trainSplit)   
 
 model3: Recursive Partitioning and Regression Trees (RPART)
@@ -81,10 +81,10 @@ test Accuracy model: Random Forest
     No Information Rate : 0.2845          
     P-Value [Acc > NIR] : < 2.2e-16       
                    Kappa : 0.994           
- Mcnemar's Test P-Value : NA        
+                   Mcnemar's Test P-Value : NA        
  
-######Statistics by Class:  
-                     Class: A Class: B Class: C Class: D Class: E  
+######Statistics by Class:
+                      Class: A Class: B Class: C Class: D Class: E  
 Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
 Specificity            0.9991   0.9977   0.9975   1.0000   0.9998  
 Pos Pred Value         0.9976   0.9904   0.9883   1.0000   0.9991  
@@ -93,8 +93,6 @@ Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839
 Detection Rate         0.2845   0.1925   0.1725   0.1619   0.1839  
 Detection Prevalence   0.2851   0.1944   0.1745   0.1619   0.1840  
 Balanced Accuracy      0.9995   0.9962   0.9934   0.9943   0.9999  
-
-
 
 test Accuracy model: Linear Discriminant Analysis
 > LDA_accuracy<- predict(LDA, testSplit)  
@@ -114,7 +112,7 @@ test Accuracy model: Linear Discriminant Analysis
     No Information Rate : 0.2845         
     P-Value [Acc > NIR] : < 2.2e-16      
                   Kappa : 0.6096         
- Mcnemar's Test P-Value : < 2.2e-16      
+                  Mcnemar's Test P-Value : < 2.2e-16      
 
 #####Statistics by Class:
                      Class: A Class: B Class: C Class: D Class: E  
