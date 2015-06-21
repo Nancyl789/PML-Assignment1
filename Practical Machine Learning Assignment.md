@@ -73,7 +73,6 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
       C    0    2 1015   10    0  
       D    0    0    0  953    0  
       E    0    0    0    1 1082  
-         
 ######Overall Statistics  
                Accuracy : 0.9952          
                  95% CI : (0.9931, 0.9968)   
@@ -81,8 +80,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
     P-Value [Acc > NIR] : < 2.2e-16       
                    Kappa : 0.994           
                    Mcnemar's Test P-Value : NA        
- 
-###### Statistics by Class:
+ ###### Statistics by Class:
                             Class: A Class: B Class: C Class: D Class: E
        Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
        Specificity            0.9991   0.9977   0.9975   1.0000   0.9998  
@@ -104,7 +102,6 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
          C  139  140  664  120  116  
          D  137   43  152  678  115  
          E    9   50   17   62  637
-
 #####Overall Statistics
                Accuracy : 0.6912         
                  95% CI : (0.6793, 0.703)  
@@ -112,7 +109,6 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
     P-Value [Acc > NIR] : < 2.2e-16      
                   Kappa : 0.6096         
                   Mcnemar's Test P-Value : < 2.2e-16      
-
 #####Statistics by Class:
                            Class: A Class: B Class: C Class: D Class: E  
       Sensitivity            0.8059   0.6497   0.6472   0.7033   0.5887  
@@ -142,9 +138,8 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
          P-Value [Acc > NIR] : < 2.2e-16      
          Kappa : 0.335           
          Mcnemar's Test P-Value : < 2.2e-16       
-
 #####Statistics by Class:
-                     Class: A Class: B Class: C Class: D Class: E  
+                           Class: A Class: B Class: C Class: D Class: E  
       Sensitivity            0.9008  0.32748  0.51170  0.17220  0.29113  
       Specificity            0.6279  0.94416  0.78061  0.97988  0.99979  
       Pos Pred Value         0.4904  0.58464  0.32998  0.62642  0.99684  
@@ -175,7 +170,6 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
          C    0    3 1014   10    0  
          D    0    0    0  953    0  
          E    0    0    0    1 1082  
-
 ######Overall Statistics  
                 Accuracy : 0.9946          
                  95% CI : (0.9923, 0.9963)  
@@ -183,9 +177,8 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
     P-Value [Acc > NIR] : < 2.2e-16       
                   Kappa : 0.9931          
                   Mcnemar's Test P-Value : NA              
-
 ######Statistics by Class:  
-                     Class: A Class: B Class: C Class: D Class: E  
+                           Class: A Class: B Class: C Class: D Class: E  
       Sensitivity            0.9994   0.9930   0.9883   0.9886   1.0000  
       Specificity            0.9988   0.9973   0.9973   1.0000   0.9998  
       Pos Pred Value         0.9970   0.9886   0.9873   1.0000   0.9991  
@@ -202,4 +195,4 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
 #####Random forest provide the best results and the right predictions for the submission.
        1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20   
        B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B   
-      Levels: A B C D E  
+       Levels: A B C D E  
