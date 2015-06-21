@@ -1,4 +1,4 @@
-Practical Machine Learning Prediction Motivation
+#Practical Machine Learning Prediction Motivation
 
 Background  
 Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large amount of data about personal activity relatively inexpensively. These type of devices are part of the quantified self movement – a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, your goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website here: http://groupware.les.inf.puc-rio.br/har (see the section on the Weight Lifting Exercise Dataset). 
@@ -10,7 +10,7 @@ The test data are available here:
 https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
 The data for this project come from this source: http://groupware.les.inf.puc-rio.br/har.
 
-####download packages
+#####download packages
 > library (caret)  
 > library (kernlab)  
 > library (randomForest)  
@@ -80,7 +80,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
     P-Value [Acc > NIR] : < 2.2e-16       
                    Kappa : 0.994           
                    Mcnemar's Test P-Value : NA        
- ###### Statistics by Class:
+ ###### Statistics by Class:  
                             Class: A Class: B Class: C Class: D Class: E
        Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
        Specificity            0.9991   0.9977   0.9975   1.0000   0.9998  
