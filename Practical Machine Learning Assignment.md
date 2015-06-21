@@ -35,9 +35,9 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
 > train2 <- train1[,-(1:7)]
 
 #####distribution of the Vb classe (A,B,C,D,E)  
-> table(train2$classe)  
-        A    B    C    D    E    
-       5580 3797 3422 3216 3607  
+> table(train2$classe)
+      A    B    C    D    E    
+      5580 3797 3422 3216 3607  
 
 #####split training data into a training (70%) and a testing (30%) dataset  
 > inTrain<-createDataPartition(y=train2$classe,
@@ -79,8 +79,8 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
     P-Value [Acc > NIR] : < 2.2e-16       
                    Kappa : 0.994           
                    Mcnemar's Test P-Value : NA    
-                     
- ######Statistics by Class:      
+      
+######Statistics by Class:      
                             Class: A Class: B Class: C Class: D Class: E
        Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
        Specificity            0.9991   0.9977   0.9975   1.0000   0.9998  
