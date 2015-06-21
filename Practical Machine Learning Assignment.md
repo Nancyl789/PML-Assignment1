@@ -1,4 +1,4 @@
-#Practical Machine Learning Prediction Motivation
+#Practical Machine Learning 
 
 Background  
 Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large amount of data about personal activity relatively inexpensively. These type of devices are part of the quantified self movement – a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, your goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website here: http://groupware.les.inf.puc-rio.br/har (see the section on the Weight Lifting Exercise Dataset). 
@@ -35,7 +35,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
 > train2 <- train1[,-(1:7)]
 
 #####distribution of the Vb classe (A,B,C,D,E)  
-> table(train2$classe)  
+> table(train2$classe)   
        A    B    C    D    E    
       5580 3797 3422 3216 3607  
 
@@ -48,8 +48,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
 > trainSplit <- train2[inTrain,]  
 > testSplit <- train2[-inTrain,]  
 
-> table(trainSplit$classe) 
-
+> table(trainSplit$classe)  
        A    B    C    D    E  
       3906 2658 2396 2252 2525 
 
@@ -79,8 +78,9 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
     No Information Rate : 0.2845          
     P-Value [Acc > NIR] : < 2.2e-16       
                    Kappa : 0.994           
-                   Mcnemar's Test P-Value : NA        
- ###### Statistics by Class:  
+                   Mcnemar's Test P-Value : NA    
+                   
+ ######Statistics by Class:      
                             Class: A Class: B Class: C Class: D Class: E
        Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
        Specificity            0.9991   0.9977   0.9975   1.0000   0.9998  
@@ -89,7 +89,7 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
        Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839  
        Detection Rate         0.2845   0.1925   0.1725   0.1619   0.1839  
        Detection Prevalence   0.2851   0.1944   0.1745   0.1619   0.1840  
-       Balanced Accuracy      0.9995   0.9962   0.9934   0.9943   0.9999  
+       Balanced Accuracy      0.9995   0.9962   0.9934   0.9943   0.9999   
 
 #####test Accuracy model: Linear Discriminant Analysis
 > LDA_accuracy<- predict(LDA, testSplit)  
@@ -147,8 +147,9 @@ The data for this project come from this source: http://groupware.les.inf.puc-ri
       Prevalence             0.2845  0.19354  0.17434  0.16381  0.18386  
       Detection Rate         0.2562  0.06338  0.08921  0.02821  0.05353  
       Detection Prevalence   0.5225  0.10841  0.27035  0.04503  0.05370  
-      Balanced Accuracy      0.7644  0.63582  0.64615  0.57604  0.64546  
-
+      Balanced Accuracy      0.7644  0.63582  0.64615  0.57604  0.64546   
+      
+#####the best model is Random Forest        
       model     Accuracy 	  Kappa
       RF        0.9952      0.994
       LDA       0.6912      0.6096 
