@@ -82,16 +82,16 @@ A    B    C    D    E
                    Kappa : 0.994           
                    Mcnemar's Test P-Value : NA        
  
-###### Stats by Class: 
-                       Class: A Class: B Class: C Class: D Class: E
-   Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
-   Specificity            0.9991   0.9977   0.9975   1.0000   0.9998  
-   Pos Pred Value         0.9976   0.9904   0.9883   1.0000   0.9991  
-   Neg Pred Value         1.0000   0.9987   0.9977   0.9978   1.0000  
-   Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839  
-   Detection Rate         0.2845   0.1925   0.1725   0.1619   0.1839  
-   Detection Prevalence   0.2851   0.1944   0.1745   0.1619   0.1840  
-   Balanced Accuracy      0.9995   0.9962   0.9934   0.9943   0.9999  
+###### Stats by Class:
+                            Class: A Class: B Class: C Class: D Class: E
+       Sensitivity            1.0000   0.9947   0.9893   0.9886   1.0000  
+       Specificity            0.9991   0.9977   0.9975   1.0000   0.9998  
+       Pos Pred Value         0.9976   0.9904   0.9883   1.0000   0.9991  
+       Neg Pred Value         1.0000   0.9987   0.9977   0.9978   1.0000  
+       Prevalence             0.2845   0.1935   0.1743   0.1638   0.1839  
+       Detection Rate         0.2845   0.1925   0.1725   0.1619   0.1839  
+       Detection Prevalence   0.2851   0.1944   0.1745   0.1619   0.1840  
+       Balanced Accuracy      0.9995   0.9962   0.9934   0.9943   0.9999  
 
 test Accuracy model: Linear Discriminant Analysis
 > LDA_accuracy<- predict(LDA, testSplit)  
